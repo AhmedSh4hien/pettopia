@@ -50,17 +50,20 @@ class ForgetPassScreen extends StatelessWidget {
                           color: Colors.white),
                     ),
                   ),
-                  WhiteField(hintText: "Email",obscText: false),
+                  WhiteField(hintText: "Email", obscText: false),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 15,
                     ),
-                    child: WhiteButton(text: "Continue",onPressed: () {
+                    child: WhiteButton(
+                      text: "Continue",
+                      onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MainScreen()));
-                      },),
+                      },
+                    ),
                   ),
                 ],
               ),
