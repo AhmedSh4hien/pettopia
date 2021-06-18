@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pettopia/widgets/home_widgets/home_post_bubble.dart';
 import 'package:pettopia/widgets/home_widgets/home_posting_form.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:pettopia/widgets/home_widgets/home_search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,24 +18,23 @@ class _HomeScreenState extends State<HomeScreen> {
           image: DecorationImage(
               image: AssetImage('assets/images/HomeBG.png'), fit: BoxFit.cover),
         ),
-        child: ListView(
-          children: [
-            FloatingSearchBarAction(
-              child: ElevatedButton(
-                child: Icon(Icons.search, color: Colors.white),
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(10),
-                  primary: Colors.blue, // <-- Button color
-                  onPrimary: Colors.red, // <-- Splash color
-                ),
-              ),
+        child: Stack(
+          children: [Padding(
+            padding: const EdgeInsets.only(top: 70),
+            child: ListView(
+              children: [
+              PostingForm(),
+                PostBubble(),
+              ],
+            
             ),
-            PostingForm(),
-            PostBubble(),
-          ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SearchBar(),
+          ),],
         ),
+        
       ),
     );
   }
