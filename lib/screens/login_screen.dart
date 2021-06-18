@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pettopia/screens/forgetpassword_screen.dart';
 
 import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
@@ -7,22 +8,18 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.light,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   brightness: Brightness.light,
+      //   elevation: 0,
+      // ),
       body: ListView(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(32),
-              // ),
-              color: Colors.amber,
-            ),
+          Image.asset(
+            'assets/images/cat.png',
+            height: 230,
+            fit: BoxFit.fill,
           ),
           Expanded(
             child: Container(
@@ -49,8 +46,22 @@ class LoginScreen extends StatelessWidget {
                           color: Colors.white),
                     ),
                   ),
-                  WhiteField(hintText: "Email", obscText: false),
-                  WhiteField(hintText: "Password", obscText: true),
+                  WhiteField(
+                    hintText: "Email",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.mail,
+                      color: Colors.white,
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Password",
+                    obscText: true,
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 15,
@@ -65,6 +76,18 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                   ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgetPassScreen()));
+                    },
+                    child: Text(
+                      'Forget Password?',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  )
                 ],
               ),
             ),

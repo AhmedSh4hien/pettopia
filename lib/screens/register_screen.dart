@@ -8,22 +8,13 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.light,
-        elevation: 0,
-      ),
       body: ListView(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(32),
-              // ),
-              color: Colors.amber,
-            ),
+          Image.asset(
+            'assets/images/cat.png',
+            height: 230,
+            fit: BoxFit.fill,
           ),
           Expanded(
             child: Container(
@@ -50,10 +41,38 @@ class RegisterScreen extends StatelessWidget {
                           color: Colors.white),
                     ),
                   ),
-                  WhiteField(hintText: "Name", obscText: false),
-                  WhiteField(hintText: "Email", obscText: false),
-                  WhiteField(hintText: "Password", obscText: true),
-                  WhiteField(hintText: "Number", obscText: false),
+                  WhiteField(
+                    hintText: "Name",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.portrait,
+                      color: Colors.white,
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Email",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.mail,
+                      color: Colors.white,
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Password",
+                    obscText: true,
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Number",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.phone,
+                      color: Colors.white,
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 15,

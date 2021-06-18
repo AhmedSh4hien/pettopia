@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 class WhiteButton extends StatelessWidget {
-  String text;
-  GestureTapCallback onPressed;
+  final String text;
+  final GestureTapCallback onPressed;
 
   WhiteButton({required this.text, required this.onPressed});
 

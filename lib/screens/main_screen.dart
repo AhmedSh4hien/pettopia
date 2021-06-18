@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:pettopia/screens/login_screen.dart';
 import 'package:pettopia/screens/register_screen.dart';
@@ -7,27 +8,20 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.light,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   brightness: Brightness.light,
+      //   elevation: 0,
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(32),
-              // ),
-              color: Colors.amber,
-            ),
-          ),
+          
+          Image.asset('assets/images/Smain.png',fit: BoxFit.fill,width: double.infinity,),
           Container(
             padding: EdgeInsets.fromLTRB(0, 40, 0, 20),
             child: Text(
-              'Title Title Title Title Title Title Title ',
+              'Thank you for making new friends!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,

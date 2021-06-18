@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pettopia/screens/codeverification_screen.dart';
 import 'package:pettopia/screens/main_screen.dart';
 
 import 'package:pettopia/widgets/white_button.dart';
@@ -8,22 +9,13 @@ class ChangePassScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.light,
-        elevation: 0,
-      ),
       body: ListView(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(32),
-              // ),
-              color: Colors.amber,
-            ),
+          Image.asset(
+            'assets/images/cat.png',
+            height: 250,
+            fit: BoxFit.fill,
           ),
           Expanded(
             child: Container(
@@ -50,18 +42,35 @@ class ChangePassScreen extends StatelessWidget {
                           color: Colors.white),
                     ),
                   ),
-                  WhiteField(hintText: "Enter new password",obscText: false),
-                  WhiteField(hintText: "Reenter new passwrod",obscText: false),
+                  WhiteField(
+                    hintText: "Enter new password",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Reenter new passwrod",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 15,
                     ),
-                    child: WhiteButton(text: "Change",onPressed: () {
+                    child: WhiteButton(
+                      text: "Change",
+                      onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MainScreen()));
-                      },),
+                      },
+                    ),
                   ),
                 ],
               ),
