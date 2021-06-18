@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pettopia/screens/forgetpassword_screen.dart';
+import 'package:pettopia/screens/login/main_screen.dart';
+
 
 import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   brightness: Brightness.light,
-      //   elevation: 0,
-      // ),
       body: ListView(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -39,11 +35,19 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: Text(
-                      "LogIn",
+                      "Create an Account",
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Name",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.portrait,
+                      color: Colors.white,
                     ),
                   ),
                   WhiteField(
@@ -62,32 +66,28 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+                  WhiteField(
+                    hintText: "Number",
+                    obscText: false,
+                    icon: Icon(
+                      Icons.phone,
+                      color: Colors.white,
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 15,
                     ),
                     child: WhiteButton(
-                      text: "LogIn",
+                      text: "SignUp",
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => MainScreen()));
                       },
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ForgetPassScreen()));
-                    },
-                    child: Text(
-                      'Forget Password?',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  )
                 ],
               ),
             ),

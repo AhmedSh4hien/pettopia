@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:pettopia/screens/login_screen.dart';
-import 'package:pettopia/screens/register_screen.dart';
+import 'package:pettopia/screens/login/login_screen.dart';
+import 'package:pettopia/screens/login/register_screen.dart';
 import 'package:pettopia/widgets/white_button.dart';
 
 class MainScreen extends StatelessWidget {

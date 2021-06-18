@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pettopia/screens/codeverification_screen.dart';
-import 'package:pettopia/screens/main_screen.dart';
+import 'package:pettopia/screens/login/changepassword_screen.dart';
+
 
 import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
 
-class ChangePassScreen extends StatelessWidget {
+class VerifyCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +35,7 @@ class ChangePassScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: Text(
-                      "Change Password",
+                      "Code Verification",
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -43,18 +43,10 @@ class ChangePassScreen extends StatelessWidget {
                     ),
                   ),
                   WhiteField(
-                    hintText: "Enter new password",
+                    hintText: "Enter code here",
                     obscText: false,
                     icon: Icon(
-                      Icons.lock,
-                      color: Colors.white,
-                    ),
-                  ),
-                  WhiteField(
-                    hintText: "Reenter new passwrod",
-                    obscText: false,
-                    icon: Icon(
-                      Icons.lock,
+                      Icons.edit,
                       color: Colors.white,
                     ),
                   ),
@@ -63,12 +55,12 @@ class ChangePassScreen extends StatelessWidget {
                       vertical: 15,
                     ),
                     child: WhiteButton(
-                      text: "Change",
+                      text: "Continue",
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MainScreen()));
+                                builder: (context) => ChangePassScreen()));
                       },
                     ),
                   ),

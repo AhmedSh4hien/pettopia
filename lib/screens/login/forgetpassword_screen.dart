@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pettopia/screens/main_screen.dart';
+import 'package:pettopia/screens/login/codeverification_screen.dart';
 
 import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
 
-class RegisterScreen extends StatelessWidget {
+class ForgetPassScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class RegisterScreen extends StatelessWidget {
         children: [
           Image.asset(
             'assets/images/cat.png',
-            height: 230,
+            height: 250,
             fit: BoxFit.fill,
           ),
           Expanded(
@@ -34,19 +34,11 @@ class RegisterScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: Text(
-                      "Create an Account",
+                      "Forget Password",
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
-                    ),
-                  ),
-                  WhiteField(
-                    hintText: "Name",
-                    obscText: false,
-                    icon: Icon(
-                      Icons.portrait,
-                      color: Colors.white,
                     ),
                   ),
                   WhiteField(
@@ -57,33 +49,17 @@ class RegisterScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  WhiteField(
-                    hintText: "Password",
-                    obscText: true,
-                    icon: Icon(
-                      Icons.lock,
-                      color: Colors.white,
-                    ),
-                  ),
-                  WhiteField(
-                    hintText: "Number",
-                    obscText: false,
-                    icon: Icon(
-                      Icons.phone,
-                      color: Colors.white,
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 15,
                     ),
                     child: WhiteButton(
-                      text: "SignUp",
+                      text: "Continue",
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MainScreen()));
+                                builder: (context) => VerifyCodeScreen()));
                       },
                     ),
                   ),

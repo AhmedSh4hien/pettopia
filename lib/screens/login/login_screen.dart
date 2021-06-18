@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:pettopia/screens/changepassword_screen.dart';
-import 'package:pettopia/screens/main_screen.dart';
+import 'package:pettopia/screens/login/forgetpassword_screen.dart';
 
 import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
 
-class VerifyCodeScreen extends StatelessWidget {
+class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   brightness: Brightness.light,
+      //   elevation: 0,
+      // ),
       body: ListView(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
             'assets/images/cat.png',
-            height: 250,
+            height: 230,
             fit: BoxFit.fill,
           ),
           Expanded(
@@ -35,7 +39,7 @@ class VerifyCodeScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: Text(
-                      "Code Verification",
+                      "LogIn",
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -43,10 +47,18 @@ class VerifyCodeScreen extends StatelessWidget {
                     ),
                   ),
                   WhiteField(
-                    hintText: "Enter code here",
+                    hintText: "Email",
                     obscText: false,
                     icon: Icon(
-                      Icons.edit,
+                      Icons.mail,
+                      color: Colors.white,
+                    ),
+                  ),
+                  WhiteField(
+                    hintText: "Password",
+                    obscText: true,
+                    icon: Icon(
+                      Icons.lock,
                       color: Colors.white,
                     ),
                   ),
@@ -55,15 +67,27 @@ class VerifyCodeScreen extends StatelessWidget {
                       vertical: 15,
                     ),
                     child: WhiteButton(
-                      text: "Continue",
+                      text: "LogIn",
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ChangePassScreen()));
+                                builder: (context) => LoginScreen()));
                       },
                     ),
                   ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgetPassScreen()));
+                    },
+                    child: Text(
+                      'Forget Password?',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  )
                 ],
               ),
             ),
