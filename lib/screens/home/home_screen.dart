@@ -53,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(top: 150),
               child: ListView(
                 children: [
+                  //widgets per tab under here
                   PostingForm(),
                   PostBubble(
                     text: "one two three four",
