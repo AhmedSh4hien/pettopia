@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:pettopia/widgets/home_widgets/home_post_bubble.dart';
 import 'package:pettopia/widgets/home_widgets/home_posting_form.dart';
 import 'package:pettopia/widgets/home_widgets/home_search_bar.dart';
 import 'package:pettopia/widgets/home_widgets/pet_details.dart';
+import 'package:pettopia/widgets/home_widgets/shelter_details.dart';
 import 'package:pettopia/widgets/home_widgets/vet_details.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,12 +13,57 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<bool> optionSelected = [true, false, false, false, false, false];
+  // List<bool> optionSelected = [true, false, false, false, false, false];
   int selected = 0;
 
+  List<Widget> petPosts = [];
+  List<Widget> shelterPosts = [];
+  List<Widget> vetPosts = [];
+
+  List<Widget> posts = [
+    PostingForm(),
+    PostBubble(
+      text: "one two three four",
+      hours: 1,
+      hearts: 609,
+      comments: 120,
+    ),
+    PostBubble(
+      text: "Hi Im under the water",
+      hours: 2,
+      hearts: 342,
+      comments: 4,
+    ),
+    PostBubble(
+      text: "Hi i have a quston",
+      hours: 4,
+      hearts: 4444,
+      comments: 44,
+    ),
+    PostBubble(
+      text: "oh no cringe",
+      hours: 69,
+      hearts: 420,
+      comments: 69,
+    ),
+    VetDetails(
+      name: 'Dr Merna Emad',
+      rating: 3,
+    ),
+    ShelterDetails(
+      name: 'Save Pets Shelter',
+      rating: 4,
+    ),
+    PetDetails(),
+  ];
+
+  
   @override
   void initState() {
     super.initState();
+   petPosts  = posts.whereType<PetDetails>().toList();
+   shelterPosts  = posts.whereType<ShelterDetails>().toList();
+   vetPosts  = posts.whereType<VetDetails>().toList();
   }
 
   @override
@@ -53,36 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 150),
               child: ListView(
-                children: [
-                  //widgets per tab under here
-                  VetDetails(vetName: 'Dr Merna Emad', rating: 3,),
-                  PostingForm(),
-                  PostBubble(
-                    text: "one two three four",
-                    hours: 1,
-                    hearts: 609,
-                    comments: 120,
-                  ),
-                  PostBubble(
-                    text: "Hi Im under the water",
-                    hours: 2,
-                    hearts: 342,
-                    comments: 4,
-                  ),
-                  PostBubble(
-                    text: "Hi i have a quston",
-                    hours: 4,
-                    hearts: 4444,
-                    comments: 44,
-                  ),
-                  PostBubble(
-                    text: "oh no cringe",
-                    hours: 69,
-                    hearts: 420,
-                    comments: 69,
-                  ),
-                  PetDetails(),
-                ],
+                children: selected == 0? posts :(selected == 1 ? petPosts : selected == 4 ? shelterPosts : selected == 5 ? vetPosts : [] ),
               ),
             ),
             Padding(
@@ -117,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
           horizontal: 12,
         ),
         height: 60,
-        width: 70,
+        // width: 70,
         decoration: BoxDecoration(
           color: selected == index ? Color(0xffe9897e) : Colors.white,
           borderRadius: BorderRadius.all(
@@ -125,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           child: Text(
             text,
             style: TextStyle(fontSize: 13),

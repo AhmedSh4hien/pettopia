@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pettopia/data/constants.dart';
 
 class PetDetails extends StatelessWidget {
+   final int id ;
+
+  PetDetails({this.id = 1,});
+
+
   @override
   Widget build(BuildContext context) {
     return Container(

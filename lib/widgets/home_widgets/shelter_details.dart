@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class VetDetails extends StatelessWidget {
+class ShelterDetails extends StatelessWidget {
   final String name;
   final double rating;
   final int id;
 
-  VetDetails({required this.name, required this.rating,this.id = 5});
+  ShelterDetails({required this.name, required this.rating, this.id  = 4,});
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +43,9 @@ class VetDetails extends StatelessWidget {
                 Text(
                   name,
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
@@ -53,7 +53,7 @@ class VetDetails extends StatelessWidget {
                     initialRating: 3,
                     minRating: 1,
                     direction: Axis.horizontal,
-                    allowHalfRating: true,
+                    allowHalfRating: false,
                     itemCount: 5,
                     itemSize: 20,
                     unratedColor: Color(0x46939597),
@@ -75,7 +75,7 @@ class VetDetails extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {},
                     child: Text(
-                      "View Details",
+                      "Call",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 10,

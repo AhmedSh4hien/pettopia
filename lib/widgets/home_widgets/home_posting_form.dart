@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PostingForm extends StatelessWidget {
+
+  final int id;
+  PostingForm({this.id = 0,});
+  
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -5,16 +5,20 @@ class PostBubble extends StatelessWidget {
   final double hours;
   final int hearts;
   final int comments;
+  final int id;
+
 
   PostBubble({
     required this.text,
     required this.hours,
     required this.hearts,
     required this.comments,
+    this.id = 0,
   });
+  
   @override
   Widget build(BuildContext context) {
-    return Container(
+        return Container(
       margin: EdgeInsets.only(left: 25,right: 25, bottom: 20),
       height: 100,
       width: double.infinity,
