@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pettopia/widgets/home_widgets/home_post_bubble.dart';
 import 'package:pettopia/widgets/home_widgets/home_posting_form.dart';
 import 'package:pettopia/widgets/home_widgets/home_search_bar.dart';
-import 'package:pettopia/widgets/pet_details.dart';
+import 'package:pettopia/widgets/home_widgets/pet_details.dart';
+import 'package:pettopia/widgets/home_widgets/vet_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -54,8 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListView(
                 children: [
                   //widgets per tab under here
+                  VetDetails(vetName: 'Dr Merna Emad', rating: 3,),
                   PostingForm(),
-                  PetDetails(),
                   PostBubble(
                     text: "one two three four",
                     hours: 1,
@@ -80,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     hearts: 420,
                     comments: 69,
                   ),
+                  PetDetails(),
                 ],
               ),
             ),
