@@ -4,7 +4,7 @@ class PostingForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 25,right: 25, bottom: 20,top:10),
+      margin: EdgeInsets.only(left: 20,right: 20, bottom: 20,top:10),
       height: 105,
       width: double.infinity,
       decoration: BoxDecoration(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pettopia/widgets/home_widgets/home_post_bubble.dart';
 import 'package:pettopia/widgets/home_widgets/home_posting_form.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:pettopia/widgets/home_widgets/home_search_bar.dart';
+import 'package:pettopia/widgets/pet_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   //widgets per tab under here
                   PostingForm(),
+                  PetDetails(),
                   PostBubble(
                     text: "one two three four",
                     hours: 1,
@@ -111,10 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Container(
         margin: EdgeInsets.symmetric(
-          horizontal: 15,
+          horizontal: 12,
         ),
         height: 60,
-        width: 80,
+        width: 70,
         decoration: BoxDecoration(
           color: selected == index ? Color(0xffe9897e) : Colors.white,
           borderRadius: BorderRadius.all(
