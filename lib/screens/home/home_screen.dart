@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pettopia/screens/profile/profile_screen.dart';
 
 import 'package:pettopia/widgets/home_widgets/home_post_bubble.dart';
 import 'package:pettopia/widgets/home_widgets/home_posting_form.dart';
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> vetPosts = [];
 
   List<Widget> posts = [
-    PostingForm(),
+    
     PostBubble(
       text: "one two three four",
       hours: 1,
@@ -57,13 +58,12 @@ class _HomeScreenState extends State<HomeScreen> {
     PetDetails(),
   ];
 
-  
   @override
   void initState() {
     super.initState();
-   petPosts  = posts.whereType<PetDetails>().toList();
-   shelterPosts  = posts.whereType<ShelterDetails>().toList();
-   vetPosts  = posts.whereType<VetDetails>().toList();
+    petPosts = posts.whereType<PetDetails>().toList();
+    shelterPosts = posts.whereType<ShelterDetails>().toList();
+    vetPosts = posts.whereType<VetDetails>().toList();
   }
 
   @override
@@ -98,11 +98,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 150),
-              child: ListView(
-                children: selected == 0? posts :(selected == 1 ? petPosts : selected == 4 ? shelterPosts : selected == 5 ? vetPosts : [] ),
-              ),
-            ),
+                padding: const EdgeInsets.only(top: 150),
+                child: ListView(
+                    children: selected == 0
+                        ? posts
+                        : (selected == 1 || selected == 2 || selected == 3
+                            ? petPosts
+                            : selected == 4
+                                ? shelterPosts
+                                : selected == 5
+                                    ? vetPosts
+                                    : []))),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SearchBar(),
@@ -112,6 +118,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: CircleAvatar(
                 backgroundColor: Colors.red,
                 maxRadius: 20,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileScreen(),
+                      ),
+                    );
+                  },
+                ),
               ),
             )
           ],

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+// import 'package:pettopia/widgets/white_textfield.dart';
 
 class PostingForm extends StatelessWidget {
 
-  final int id;
-  PostingForm({this.id = 0,});
-  
+  final GestureTapCallback tap;
+
+  PostingForm({required this.tap});
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20,right: 20, bottom: 20,top:10),
-      height: 105,
+      margin: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 10),
+      height: 115,
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(),
@@ -35,6 +36,32 @@ class PostingForm extends StatelessWidget {
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                // margin: EdgeInsets.symmetric(horizontal: 10, ),
+                width: 300,
+                height: 10,
+                child: TextField(
+                  cursorColor: Colors.white,
+                  autocorrect: true,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    // hintText: hintText,
+                    hintStyle: TextStyle(
+                        // color: Colors.white,
+                        // fontStyle: FontStyle.italic,
+                        ),
+                    enabledBorder:
+                        UnderlineInputBorder(borderSide: BorderSide()),
+                    focusedBorder:
+                        UnderlineInputBorder(borderSide: BorderSide()),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
@@ -43,7 +70,7 @@ class PostingForm extends StatelessWidget {
                   width: 60,
                   height: 20,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: tap,
                     child: Text(
                       "Post",
                       style: TextStyle(
