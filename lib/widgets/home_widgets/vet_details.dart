@@ -4,9 +4,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class VetDetails extends StatelessWidget {
   final String name;
   final double rating;
-  final int id;
 
-  VetDetails({required this.name, required this.rating,this.id = 5});
+  VetDetails({required this.name, required this.rating});
 
   @override
   Widget build(BuildContext context) {

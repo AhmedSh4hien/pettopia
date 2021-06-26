@@ -5,7 +5,6 @@ class PostBubble extends StatelessWidget {
   final double hours;
   final int hearts;
   final int comments;
-  final int id;
 
 
   PostBubble({
@@ -13,7 +12,6 @@ class PostBubble extends StatelessWidget {
     required this.hours,
     required this.hearts,
     required this.comments,
-    this.id = 0,
   });
   
   @override

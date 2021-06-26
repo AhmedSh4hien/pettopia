@@ -9,6 +9,7 @@ Widget WhiteField({
 }) {
   {
     color != Colors.white ? color = color : color = Colors.white;
+    
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: TextField(

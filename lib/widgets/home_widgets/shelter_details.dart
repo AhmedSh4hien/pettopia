@@ -4,9 +4,9 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class ShelterDetails extends StatelessWidget {
   final String name;
   final double rating;
-  final int id;
+  
 
-  ShelterDetails({required this.name, required this.rating, this.id  = 4,});
+  ShelterDetails({required this.name, required this.rating,});
 
   @override
   Widget build(BuildContext context) {

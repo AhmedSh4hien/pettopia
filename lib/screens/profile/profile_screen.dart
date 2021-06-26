@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
             Icons.arrow_back,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {Navigator.pop(context);},
         ),
         title: Text(
           'PROFILE',
