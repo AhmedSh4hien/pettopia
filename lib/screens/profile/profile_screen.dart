@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
+import 'package:pettopia/screens/profile/sell_buy_screen.dart';
+import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -15,7 +17,9 @@ class ProfileScreen extends StatelessWidget {
             Icons.arrow_back,
             color: Colors.white,
           ),
-          onPressed: () {Navigator.pop(context);},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text(
           'PROFILE',
@@ -101,6 +105,14 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     // color: Colors.blue,
                   ),
+                  WhiteButton(
+                      text: "placeholdergonext",
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SellBuyScreen()));
+                      })
                 ],
               ),
             ),

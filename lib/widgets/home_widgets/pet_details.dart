@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pettopia/data/constants.dart';
+import 'package:pettopia/screens/pet_details_screen.dart';
 
 class PetDetails extends StatelessWidget {
    
@@ -26,7 +27,10 @@ class PetDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PetDetailsScreen()));},
                 child: Text(
                   'View Details',
                   textAlign: TextAlign.left,

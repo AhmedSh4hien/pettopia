@@ -1,30 +1,28 @@
-
 import 'package:flutter/material.dart';
 
-class WhiteButton extends StatelessWidget {
-  final String text;
-  final GestureTapCallback onPressed;
+// ignore: non_constant_identifier_names
+Widget WhiteButton({
+  required text,
+  required onPressed,
+  color = Colors.white,
+}) {
+  color != Colors.white ? color = color : color = Colors.white;
 
-  WhiteButton({required this.text, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        primary: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 100),
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(30),
-        ),
+  return ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      primary: color,
+      padding: EdgeInsets.symmetric(horizontal: 100),
+      shape: new RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(30),
       ),
-      // style: Style,
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.black,
-        ),
+    ),
+    // style: Style,
+    onPressed: onPressed,
+    child: Text(
+      text,
+      style: TextStyle(
+        color: Colors.black,
       ),
-    );
-  }
+    ),
+  );
 }

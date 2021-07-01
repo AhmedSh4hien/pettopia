@@ -22,7 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> vetPosts = [];
 
   List<Widget> posts = [
-    PostingForm(tap: () {},),
+    PostingForm(
+      tap: () {},
+    ),
     PostBubble(
       text: "one two three four",
       hours: 1,
@@ -68,13 +70,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/HomeBG.png'), fit: BoxFit.cover),
-        ),
-        child: Stack(
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/HomeBG.png'), fit: BoxFit.cover),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
           children: [
             Container(
               padding: EdgeInsets.only(top: 100, left: 20),
