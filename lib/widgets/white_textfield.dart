@@ -5,6 +5,7 @@ Widget WhiteField({
   required String hintText,
   required bool obscText,
   required Icon icon,
+  required Function onChange,
   color = Colors.white,
 }) {
   {
@@ -29,6 +30,9 @@ Widget WhiteField({
               UnderlineInputBorder(borderSide: BorderSide(color: color)),
           prefixIcon: icon,
         ),
+        onChanged: (text) {
+          onChange(text);
+        },
       ),
     );
   }

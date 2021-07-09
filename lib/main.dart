@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pettopia/screens/home/home_screen.dart';
+import 'package:pettopia/screens/login/main_screen.dart';
+import 'package:provider/provider.dart';
 
-// import 'package:pettopia/screens/profile/profile_screen.dart';
-
-// import 'package:pettopia/screens/login/main_screen.dart';
+import 'providers/authintecation_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }

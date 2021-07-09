@@ -81,30 +81,32 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   WhiteField(
-                    hintText: 'Change Password',
-                    obscText: false,
-                    icon: Icon(
-                      Icons.lock,
-                      color: Colors.white,
-                    ),
-                  ),
+                      hintText: 'Change Password',
+                      obscText: false,
+                      icon: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                      ),
+                      onChange: () {}),
                   WhiteField(
-                    hintText: 'Change Phone',
-                    obscText: false,
-                    icon: Icon(
-                      Icons.phone,
-                      color: Colors.white,
-                    ),
-                  ),
+                      hintText: 'Change Phone',
+                      obscText: false,
+                      icon: Icon(
+                        Icons.phone,
+                        color: Colors.white,
+                      ),
+                      onChange: () {}),
                   WhiteField(
-                    hintText: 'Change E-mail',
-                    obscText: false,
-                    icon: Icon(
-                      Icons.mail,
-                      color: Colors.white,
-                    ),
-                    // color: Colors.blue,
-                  ),
+                      hintText: 'Change E-mail',
+                      obscText: false,
+                      icon: Icon(
+                        Icons.mail,
+                        color: Colors.white,
+                      ),
+                      onChange: () {}
+
+                      // color: Colors.blue,
+                      ),
                   WhiteButton(
                       text: "placeholdergonext",
                       onPressed: () {
