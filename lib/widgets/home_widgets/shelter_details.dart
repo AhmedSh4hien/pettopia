@@ -4,9 +4,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class ShelterDetails extends StatelessWidget {
   final String name;
   final double rating;
-  
 
-  ShelterDetails({required this.name, required this.rating,});
+  ShelterDetails({
+    required this.name,
+    required this.rating,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class ShelterDetails extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: RatingBar.builder(
-                    initialRating: 3,
+                    initialRating: rating,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: false,

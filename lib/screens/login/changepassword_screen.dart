@@ -82,7 +82,7 @@ class _ChangePassScreenState extends State<ChangePassScreen> {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text('Password changed successfully'),
                         ));
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => LoginScreen()));

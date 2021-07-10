@@ -41,10 +41,8 @@ class SellBuyScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AddPetScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddPetScreen()));
                 },
                 child: Text(
                   "Add profile's pet",
@@ -74,27 +72,27 @@ class SellBuyScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xffF5BDB6),
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => UserAdoptScreen()));
-                },
-                child: Text(
-                  "Put for adoption",
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     primary: Color(0xffF5BDB6),
+              //     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+              //     shape: new RoundedRectangleBorder(
+              //       borderRadius: new BorderRadius.circular(30),
+              //     ),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => UserAdoptScreen()));
+              //   },
+              //   child: Text(
+              //     "Put for adoption",
+              //     style: TextStyle(
+              //       color: Colors.black,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

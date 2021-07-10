@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:pettopia/screens/vet_details_screen.dart';
 
 class VetDetails extends StatelessWidget {
   final String name;
@@ -43,13 +44,13 @@ class VetDetails extends StatelessWidget {
                   name,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                      fontSize: 16,
+                      fontWeight: FontWeight.normal),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(0),
                   child: RatingBar.builder(
-                    initialRating: 3,
+                    initialRating: rating,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
@@ -72,7 +73,12 @@ class VetDetails extends StatelessWidget {
                   width: 96,
                   height: 20,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VetDetailsScreen()));
+                    },
                     child: Text(
                       "View Details",
                       style: TextStyle(

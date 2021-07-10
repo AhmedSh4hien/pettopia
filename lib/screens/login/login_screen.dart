@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           await model.loginUser();
                           print(model.loginMessage);
                           if (model.homeState == HomeState.Loaded) {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => HomeScreen()));

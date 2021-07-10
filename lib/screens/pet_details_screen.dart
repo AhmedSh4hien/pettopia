@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pettopia/data/constants.dart';
-
+import 'package:pettopia/models/pet_model.dart';
 
 class PetDetailsScreen extends StatelessWidget {
+  final PetModel selectedPet;
+
+  PetDetailsScreen(this.selectedPet);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,12 +59,13 @@ class PetDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Name : "),
-                          Text("Type : "),
-                          Text("Age : "),
-                          Text("Gender : "),
-                          Text("Location : "),
-                          Text("Owner Name : "),
+                          Text("Name : " + selectedPet.name.toString()),
+                          Text("Type : " + selectedPet.type.toString()),
+                          Text("Age : " + selectedPet.age.toString()),
+                          Text("Gender : " + selectedPet.gender.toString()),
+                          Text("Vaccinations : " +
+                              selectedPet.vaccinations.toString()),
+                          Text("Color : " + selectedPet.color.toString()),
                         ],
                       ),
                     ),
@@ -68,8 +73,10 @@ class PetDetailsScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30),
                     child: ElevatedButton.icon(
-                      icon: Icon(Icons.phone,
-                      color: Color(0xffE9897E),),
+                      icon: Icon(
+                        Icons.phone,
+                        color: Color(0xffE9897E),
+                      ),
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xffF5BDB6),
                         padding:

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pettopia/providers/api_provider.dart';
+import 'package:pettopia/providers/authintecation_provider.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
+import 'package:provider/provider.dart';
 
 class AddPetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<UserProvider>(context);
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -58,25 +63,33 @@ class AddPetScreen extends StatelessWidget {
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petName = str;
+                      }),
                   WhiteField(
                       hintText: "Pet type",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petType = str;
+                      }),
                   WhiteField(
                       hintText: "Pet age",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petAge = str;
+                      }),
                   WhiteField(
                       hintText: "Pet gender",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petGender = str;
+                      }),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: ElevatedButton(
@@ -88,7 +101,10 @@ class AddPetScreen extends StatelessWidget {
                           borderRadius: new BorderRadius.circular(30),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        await model.addPet();
+                        Navigator.pop(context);
+                      },
                       child: Text(
                         "Add",
                         style: TextStyle(

@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
+import 'package:pettopia/providers/authintecation_provider.dart';
+import 'package:pettopia/screens/login/main_screen.dart';
 import 'package:pettopia/screens/profile/sell_buy_screen.dart';
 import 'package:pettopia/widgets/white_button.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
+import 'package:provider/provider.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<UserProvider>(context);
+    model.getPrefUser();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -53,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      'Dina Akram',
+                      model.currentUserName,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -61,24 +71,45 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    height: 150,
-                    width: 250,
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: Swiper(
-                      itemBuilder: (BuildContext context, int index) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
-                          child: Container(
-                            color: Colors.blue,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 150,
+                        width: 250,
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        child: Swiper(
+                          itemBuilder: (BuildContext context, int index) {
+                            return ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: Container(
+                                color: Colors.blue,
+                              ),
+                            );
+                          },
+                          itemCount: 5,
+                          viewportFraction: 0.8,
+                          scale: 0.9,
+                          //pagination: SwiperPagination(),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SellBuyScreen()));
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xFFF5BDB6),
+                          radius: 30,
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.white,
                           ),
-                        );
-                      },
-                      itemCount: 5,
-                      viewportFraction: 0.8,
-                      scale: 0.9,
-                      //pagination: SwiperPagination(),
-                    ),
+                        ),
+                      ),
+                    ],
                   ),
                   WhiteField(
                       hintText: 'Change Password',
@@ -87,33 +118,48 @@ class ProfileScreen extends StatelessWidget {
                         Icons.lock,
                         color: Colors.white,
                       ),
-                      onChange: () {}),
-                  WhiteField(
-                      hintText: 'Change Phone',
-                      obscText: false,
-                      icon: Icon(
-                        Icons.phone,
-                        color: Colors.white,
-                      ),
-                      onChange: () {}),
-                  WhiteField(
-                      hintText: 'Change E-mail',
-                      obscText: false,
-                      icon: Icon(
-                        Icons.mail,
-                        color: Colors.white,
-                      ),
-                      onChange: () {}
-
-                      // color: Colors.blue,
-                      ),
+                      onChange: (str) {
+                        model.changedPW = str;
+                      }),
+                  // WhiteField(
+                  //     hintText: 'Change Phone',
+                  //     obscText: false,
+                  //     icon: Icon(
+                  //       Icons.phone,
+                  //       color: Colors.white,
+                  //     ),
+                  //     onChange: () {}),
+                  // WhiteField(
+                  //     hintText: 'Change E-mail',
+                  //     obscText: false,
+                  //     icon: Icon(
+                  //       Icons.mail,
+                  //       color: Colors.white,
+                  //     ),
+                  //     onChange: () {}
+                  //
+                  //     // color: Colors.blue,
+                  //     ),
                   WhiteButton(
-                      text: "placeholdergonext",
-                      onPressed: () {
-                        Navigator.push(
+                      text: "Change Password",
+                      onPressed: () async {
+                        await model.getPrefUser();
+                        model.retrieveID = int.parse(model.currentUserId);
+                        model.updateUserPw();
+                      }),
+                  WhiteButton(
+                      text: "Sign out",
+                      onPressed: () async {
+                        await model.cleanPrefUser();
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SellBuyScreen()));
+                                builder: (context) => MainScreen()));
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => SellBuyScreen()));
                       })
                 ],
               ),

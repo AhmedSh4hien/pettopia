@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pettopia/providers/authintecation_provider.dart';
+import 'package:pettopia/screens/ai_screen.dart';
+import 'package:pettopia/screens/pages/adope_page.dart';
+import 'package:pettopia/screens/pages/all_page.dart';
+import 'package:pettopia/screens/pages/buy_page.dart';
+import 'package:pettopia/screens/pages/mate_page.dart';
+import 'package:pettopia/screens/pages/shelter_page.dart';
+import 'package:pettopia/screens/pages/vet_page.dart';
 import 'package:pettopia/screens/profile/profile_screen.dart';
 
 import 'package:pettopia/widgets/home_widgets/home_post_bubble.dart';
@@ -7,6 +15,16 @@ import 'package:pettopia/widgets/home_widgets/home_search_bar.dart';
 import 'package:pettopia/widgets/home_widgets/pet_details.dart';
 import 'package:pettopia/widgets/home_widgets/shelter_details.dart';
 import 'package:pettopia/widgets/home_widgets/vet_details.dart';
+import 'package:provider/provider.dart';
+
+final pageState = [
+  AllPage(),
+  BuyPage(),
+  AdoptPage(),
+  MatePage(),
+  ShelterPage(),
+  VetPage()
+];
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -14,7 +32,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // List<bool> optionSelected = [true, false, false, false, false, false];
   int selected = 0;
 
   List<Widget> petPosts = [];
@@ -22,9 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> vetPosts = [];
 
   List<Widget> posts = [
-    PostingForm(
-      tap: () {},
-    ),
     PostBubble(
       text: "one two three four",
       hours: 1,
@@ -57,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Save Pets Shelter',
       rating: 4,
     ),
-    PetDetails(),
+    // PetDetails(),
   ];
 
   @override
@@ -77,6 +91,17 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.camera),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AiScreen(),
+              ),
+            );
+          },
+        ),
         body: Stack(
           children: [
             Container(
@@ -102,16 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Padding(
                 padding: const EdgeInsets.only(top: 150),
-                child: ListView(
-                    children: selected == 0
-                        ? posts
-                        : (selected == 1 || selected == 2 || selected == 3
-                            ? petPosts
-                            : selected == 4
-                                ? shelterPosts
-                                : selected == 5
-                                    ? vetPosts
-                                    : []))),
+                child: pageState[selected]),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SearchBar(),
@@ -143,10 +159,14 @@ class _HomeScreenState extends State<HomeScreen> {
     String text,
     int index,
   ) {
+    final model = Provider.of<UserProvider>(context);
+
     return GestureDetector(
       onTap: () {
         setState(() {
           selected = index;
+          model.whichPage = index;
+          print(model.whichPage);
         });
       },
       child: Container(

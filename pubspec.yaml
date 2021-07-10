@@ -34,7 +34,10 @@ dependencies:
   http: ^0.13.3
   provider: ^5.0.0
   path_provider: ^2.0.2
+  shared_preferences: ^2.0.6
 
+  tflite:
+  image_picker:
 
 
 dev_dependencies:

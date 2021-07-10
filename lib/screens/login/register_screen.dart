@@ -111,7 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           await model.registerUser();
                           print(model.registerMessage);
                           if (model.registerState == HomeState.Loaded) {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => HomeScreen()));

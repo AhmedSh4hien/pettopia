@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pettopia/providers/authintecation_provider.dart';
 import 'package:pettopia/widgets/white_textfield.dart';
+import 'package:provider/provider.dart';
 
 class UserSellScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<UserProvider>(context);
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -39,7 +43,7 @@ class UserSellScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      'Dina Akram',
+                      model.currentUserName,
                       style: TextStyle(
                         color: Color(0xffE9897E),
                         fontSize: 20,
@@ -58,37 +62,49 @@ class UserSellScreen extends StatelessWidget {
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petName = str;
+                      }),
                   WhiteField(
                       hintText: "Pet type",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petType = str;
+                      }),
                   WhiteField(
                       hintText: "Pet age",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petAge = str;
+                      }),
                   WhiteField(
                       hintText: "Pet price",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petPrice = str;
+                      }),
                   WhiteField(
                       hintText: "Pet gender",
                       obscText: false,
                       icon: Icon(Icons.edit, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petGender = str;
+                      }),
                   WhiteField(
                       hintText: "Owner location",
                       obscText: false,
                       icon: Icon(Icons.location_on, color: Color(0xffE9897E)),
                       color: Color(0xffE9897E),
-                      onChange: () {}),
+                      onChange: (str) {
+                        model.petLocation = str;
+                      }),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Color(0xffF5BDB6),
@@ -98,7 +114,11 @@ class UserSellScreen extends StatelessWidget {
                         borderRadius: new BorderRadius.circular(30),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      await model.sellPet();
+                      await Future.delayed(Duration(seconds: 1));
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       "Add",
                       style: TextStyle(
