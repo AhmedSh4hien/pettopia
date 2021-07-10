@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:pettopia/data/constants.dart';
 import 'package:pettopia/models/user_model.dart';
 
 class Authentication {
-  String domain = 'http://10.0.2.2:8000/api/';
   static Authentication _instance = Authentication._();
   Authentication._();
 

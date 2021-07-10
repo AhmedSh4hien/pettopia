@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:pettopia/data/constants.dart';
 import 'package:pettopia/models/pet_model.dart';
 import 'package:pettopia/models/post_model.dart';
 import 'package:pettopia/models/product_model.dart';
@@ -8,8 +9,6 @@ import 'package:pettopia/models/shelter_model.dart';
 import 'package:pettopia/models/vet_model.dart';
 
 class Api {
-  String domain = 'http://10.0.2.2:8000/api/';
-
   static Api _instance = Api();
 
   static Api get instance => _instance;
@@ -19,7 +18,7 @@ class Api {
   Future<List<PostModel>> getAllPosts() async {
     List<PostModel> listPosts;
     final getUser = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/allposts'),
+      Uri.parse(domain + 'allposts'),
     );
     final responseBody = json.decode(getUser.body);
     print(responseBody['results'].length.toString());
@@ -33,7 +32,7 @@ class Api {
   Future<List<ProductModel>> getAllProducts() async {
     List<ProductModel> listProds;
     final getUser = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/alladopt'),
+      Uri.parse(domain + 'alladopt'),
     );
     final responseBody = json.decode(getUser.body);
     print(responseBody['results'].length.toString());
@@ -47,7 +46,7 @@ class Api {
   Future<List<PetModel>> getAllAdoption() async {
     List<PetModel> listAdops;
     final getUser = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/alladopt'),
+      Uri.parse(domain + 'alladopt'),
     );
     final responseBody = json.decode(getUser.body);
     print(responseBody['results'].length.toString());
@@ -61,7 +60,7 @@ class Api {
   Future<List<PetModel>> getAllMate() async {
     List<PetModel> listMate;
     final getUser = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/allmate'),
+      Uri.parse(domain + 'allmate'),
     );
     final responseBody = json.decode(getUser.body);
     print(responseBody['results'].length.toString());
@@ -75,7 +74,7 @@ class Api {
   Future<List<ShelterModel>> getAllShelters() async {
     List<ShelterModel> listShelters;
     final getUser = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/allshelters'),
+      Uri.parse(domain + 'allshelters'),
     );
     final responseBody = json.decode(getUser.body);
     print(responseBody['results'].length.toString());
@@ -89,7 +88,7 @@ class Api {
   Future<List<VetModel>> getAllVets() async {
     List<VetModel> listVets;
     final getUser = await http.post(
-      Uri.parse('http://10.0.2.2:8000/api/allvet'),
+      Uri.parse(domain + 'allvet'),
     );
     final responseBody = json.decode(getUser.body);
     print(responseBody['results'].length.toString() + 'THIS IS VETS');
